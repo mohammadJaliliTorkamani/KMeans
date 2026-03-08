@@ -10,4 +10,6 @@ COPY data/ /app/data
 
 RUN mkdir -p /app/output
 
+ENV COLUMNS=revenue,runtime,vote_average,vote_count
+
 WORKDIR /app/src

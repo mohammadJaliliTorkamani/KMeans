@@ -60,7 +60,7 @@ class KMeans:
             current_ssd = compute_ssd(self.clusters, self.centroids)
 
             if abs(previous_ssd - current_ssd) < self.epsilon:  # As the second stop criterion
-                print(f"Converged at iteration {iteration}")
+                print(f"Second criterion stop met! converged at iteration {iteration}")
                 break
 
             previous_ssd = current_ssd
