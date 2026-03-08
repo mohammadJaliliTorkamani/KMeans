@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-This project implements the **K-Means clustering algorithm** in Python from scratch.
+This project implements the K-Means clustering algorithm in Python from scratch.
 
 Features:
 - Reads datasets from CSV files with continuous attributes.
@@ -21,6 +21,8 @@ Features:
   - Runtime vs dimensions
   - Exploring different k
 - Fully Dockerized for reproducibility.
+
+Note: For this assignment, we used the TMDb Movies Dataset (2023), available on Kaggle at https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies, which we downloaded on March 8, 2026 and is used in our final project. To ensure manageable computation and runtime during experiments, we limited our analysis to the first 10,000 records of the dataset. All clustering operations were performed on this subset.
 
 ---
 
