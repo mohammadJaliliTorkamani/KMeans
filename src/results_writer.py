@@ -5,7 +5,6 @@ os.makedirs("output", exist_ok=True)
 
 
 def write_results(filepath, clusters, centroids, ssd, runtime):
-    # Ensure directory exists
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
     with open(filepath, "w") as f:
