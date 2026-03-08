@@ -1,46 +1,100 @@
-# K-Means Clustering Project - Homework Assignment 4
+# K-Means Clustering Project – Assignment 4
 
 **Course:** CSCE-474/874 – Introduction to Data Mining  
-**University:** University of Nebraska-Lincoln (UNL)  
+**University:** University of Nebraska–Lincoln (UNL)  
 **Group Members:** Mohammad Jalili Torkamani, Amirmohammad Sadeghnejad, Pedro Gomes, Jason Le  
-**Assignment:** HW-4
+**Assignment:** HW-4  
 
 ---
 
 ## Project Overview
 
-This project implements the **K-Means clustering algorithm** in Python. It is designed to:
+This project implements the **K-Means clustering algorithm** in Python from scratch.
 
-- Read datasets from CSV files with continuous attributes.
-- Cluster data based on a specified number of clusters (`k`), a convergence threshold (`epsilon`), and a maximum number of iterations.
-- Output cluster centroids, cluster members, and the **sum of squared distances (SSD)**.
-- Record **runtime and clustering performance plots** for analysis.
-- Evaluate runtime as a function of **number of clusters**, **dataset size**, and **number of dimensions**.
-- Determine the **optimal number of clusters** using the **Elbow method**.
-
-The project is fully **Dockerized** to allow reproducible execution on any system without manual dependency installation.
+Features:
+- Reads datasets from CSV files with continuous attributes.
+- Uses configurable number of clusters (k), epsilon, and max iterations.
+- Outputs cluster details, centroids, SSD, and runtime.
+- Generates performance plots:
+  - Runtime vs k
+  - Runtime vs dataset size
+  - Runtime vs dimensions
+  - Exploring different k
+- Fully Dockerized for reproducibility.
 
 ---
 
-## Directory Structure
+## Project Structure
 
-```text
-kmeans-project/
-│
-├── Dockerfile                   # Docker image definition
-├── docker-compose.yml           # Compose file for easy execution
-├── requirements.txt             # Python dependencies
-│
-├── src/                         # Python source code
-│   ├── main.py                  # Main execution file
-│   ├── kmeans.py                # K-Means algorithm implementation
-│   ├── dataset.py               # CSV dataset loading utility
-│   ├── distance.py              # Distance computation utilities
-│   ├── utils.py                 # Helper functions
-│   ├── experiments.py           # Runtime & Elbow method analysis
-│   └── results_writer.py        # Output file writer
-│
-├── data/                        # Input CSV dataset(s)
+KMeans/
+
+├── Dockerfile
+
+├── docker-compose.yml
+
+├── requirements.txt
+
+├── src/
+
+│   ├── main.py
+
+│   ├── kmeans.py
+
+│   ├── dataset.py
+
+│   ├── distance.py
+
+│   ├── utils.py
+
+│   ├── experiments.py
+
+│   └── results_writer.py
+
+├── data/
+
 │   └── dataset.csv
-│
-└── output/                      # Generated results and plots
+
+└── output/
+
+---
+
+## How to Run
+
+### 1. Build the Docker image
+
+    docker compose build
+
+### 2. Run the project
+
+    docker compose up
+
+Results will be saved inside the `output/` folder.
+
+---
+
+## Output Files
+
+- kmeans_results.txt
+- runtime_vs_k.png
+- runtime_vs_dataset_size.png
+- runtime_vs_dimensions.png
+- different_k_method.png
+
+---
+
+## Configuration
+
+### Change Columns
+Edit `COLUMNS` in Dockerfile:
+
+environment:
+  - COLUMNS=x1,x2,x3
+
+### Change Algorithm Parameters
+Edit the command in docker-compose.yml: 
+
+python main.py <k> <epsilon> <max_iterations> /app/data/dataset.csv
+
+Example command: 
+
+"python main.py 3 0.001 100 /app/data/dataset.csv"
